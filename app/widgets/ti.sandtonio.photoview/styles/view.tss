@@ -1,0 +1,15 @@
+"#imagePhoto": {
+	width:'60dp',
+	height:'60dp',
+	backgroundColor:'white',
+	left:'20dp',
+},
+"#iconDelete": {
+	width:'20dp',
+	height:'20dp',
+	right:0,
+	top:0,
+	backgroundColor: 'blue',
+	bubbleParent:false,
+}
+

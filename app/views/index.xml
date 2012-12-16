@@ -1,0 +1,5 @@
+<Alloy>
+	<Window class="container" id='index'>
+		<Require type="widget" src="ti.sandtonio.photoview"/> 
+	</Window>
+</Alloy>
