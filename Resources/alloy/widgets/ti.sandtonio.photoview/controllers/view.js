@@ -1,6 +1,6 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/"), path = index === -1 ? "ti.sandtonio.photoview/" + s : s.substring(0, index) + "/ti.sandtonio.photoview/" + s.substring(index + 1);
-    return path.indexOf("/") !== 0 ? "/" + path : path;
+    return path;
 }
 
 function Controller() {
@@ -12,6 +12,7 @@ function Controller() {
         height: "60dp",
         backgroundColor: "white",
         left: "20dp",
+        top: "10dp",
         edit: !1,
         id: "view"
     }), "ImageView", null);
@@ -35,10 +36,10 @@ function Controller() {
     $.view.addEventListener("singletap", function(e) {
         if (!e.source.edit) {
             e.source.edit = !0;
-            $.iconDelete.visible = !0;
+            $.iconDelete.setVisible(!0);
         } else {
             e.source.edit = !1;
-            $.iconDelete.visible = !1;
+            $.iconDelete.setVisible(!1);
         }
     });
     $.iconDelete.addEventListener("singletap", function(e) {

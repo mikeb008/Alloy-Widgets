@@ -6,10 +6,10 @@ $.iconDelete.id = args.id;
 $.view.addEventListener('singletap', function(e){
 	if(!e.source.edit){
 		e.source.edit = true;
-		$.iconDelete.visible = true;
+		$.iconDelete.setVisible(true);
 	}else{
 		e.source.edit = false;
-		$.iconDelete.visible = false;
+		$.iconDelete.setVisible(false);
 	}
 });
 

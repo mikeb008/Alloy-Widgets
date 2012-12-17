@@ -1,14 +1,15 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/"), path = index === -1 ? "ti.sandtonio.photoview/" + s : s.substring(0, index) + "/ti.sandtonio.photoview/" + s.substring(index + 1);
-    return path.indexOf("/") !== 0 ? "/" + path : path;
+    return path;
 }
 
 function Controller() {
     function newPhoto() {
         takePhoto({
             success: function(image) {
-                photos[numberPhotos] = Alloy.createWidget("ti.sandtonio.photoView", "view", {
-                    id: numberPhotos
+                photos[numberPhotos] = Alloy.createWidget("ti.sandtonio.photoview", "view", {
+                    id: numberPhotos,
+                    image: image
                 });
                 $.listPhotos.add(photos[numberPhotos].getView());
                 numberPhotos++;

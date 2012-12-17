@@ -12,7 +12,7 @@ $.listPhotos.addEventListener('delete_view', function(e){
 function newPhoto(){
 	takePhoto({
 		success:function(image){
-			photos[numberPhotos] = Alloy.createWidget('ti.sandtonio.photoView', 'view', {id:numberPhotos});			
+			photos[numberPhotos] = Alloy.createWidget('ti.sandtonio.photoview','view', {id:numberPhotos, image:image});			
 			$.listPhotos.add(photos[numberPhotos].getView());	
 			numberPhotos++;	
 		}
