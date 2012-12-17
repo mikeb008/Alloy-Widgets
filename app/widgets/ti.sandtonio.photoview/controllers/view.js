@@ -1,6 +1,8 @@
 var args = arguments[0] || {};
 $.view.id = args.id;
+$.view.image = args.image || '';
 $.iconDelete.id = args.id;
+
 $.view.addEventListener('singletap', function(e){
 	if(!e.source.edit){
 		e.source.edit = true;

@@ -1,18 +1,21 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/"), path = index === -1 ? "ti.sandtonio.photoview/" + s : s.substring(0, index) + "/ti.sandtonio.photoview/" + s.substring(index + 1);
-    return path;
+    return path.indexOf("/") !== 0 ? "/" + path : path;
 }
 
 function Controller() {
     function newPhoto() {
-        photos[numberPhotos] = Alloy.createWidget("ti.sandtonio.photoView", "view", {
-            id: numberPhotos
+        takePhoto({
+            success: function(image) {
+                photos[numberPhotos] = Alloy.createWidget("ti.sandtonio.photoView", "view", {
+                    id: numberPhotos
+                });
+                $.listPhotos.add(photos[numberPhotos].getView());
+                numberPhotos++;
+            }
         });
-        $.listPhotos.add(photos[numberPhotos].getView());
-        numberPhotos++;
     }
     function uploadPhotos() {
-        Ti.API.info("UPload....");
         _.each(_.keys(photos), function(photo) {
             Ti.API.info(photos[photo].image());
         });
@@ -72,7 +75,6 @@ function Controller() {
     $.listPhotos.addEventListener("delete_view", function(e) {
         $.listPhotos.remove(photos[e.id].getView());
         delete photos[e.id];
-        Ti.API.info("DeleteView:" + e.id);
     });
     _.extend($, exports);
 }
