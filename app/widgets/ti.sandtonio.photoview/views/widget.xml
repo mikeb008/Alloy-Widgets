@@ -1,7 +1,7 @@
 <Alloy>
 		<View id='mainView'>
 			<View id='options'>
-				<ImageView id="camera"  onClick="takePhoto"/>
+				<ImageView id="camera"  onClick="newPhoto"/>
 				<ImageView id="submit"  onClick="uploadPhotos"/>
 			</View>	
 			<ScrollView id='listPhotos'></ScrollView>

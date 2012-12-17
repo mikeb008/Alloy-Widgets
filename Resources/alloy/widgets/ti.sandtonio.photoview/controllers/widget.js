@@ -4,35 +4,17 @@ function WPATH(s) {
 }
 
 function Controller() {
-    function takePhoto() {
-        var argsPhoto = _.defaults(defaultImage, {
+    function newPhoto() {
+        photos[numberPhotos] = Alloy.createWidget("ti.sandtonio.photoView", "view", {
             id: numberPhotos
         });
-        $._photo[numberPhotos] = UI.image(argsPhoto);
-        $._photo[numberPhotos].addEventListener("singletap", function(e) {
-            if (!this.edit) {
-                this.add(this.x);
-                this.edit = !0;
-            } else {
-                this.remove(this.x);
-                this.edit = !1;
-            }
-        });
-        $._photo[numberPhotos].x = UI.view(defaultX);
-        $._photo[numberPhotos].x.addEventListener("singletap", _.bind(function(e) {
-            Ti.API.info("delete" + this.id);
-            $.listPhotos.remove($._photo[this.id]);
-            delete $._photo[this.id];
-        }, {
-            id: numberPhotos
-        }));
-        $.listPhotos.add($._photo[numberPhotos]);
+        $.listPhotos.add(photos[numberPhotos].getView());
         numberPhotos++;
     }
     function uploadPhotos() {
         Ti.API.info("UPload....");
-        _.each(_.keys($._photo), function(photo) {
-            Ti.API.info(photo);
+        _.each(_.keys(photos), function(photo) {
+            Ti.API.info(photos[photo].image());
         });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -64,7 +46,7 @@ function Controller() {
     }), "ImageView", $.__views.options);
     $.__views.options.add($.__views.camera);
     $.__views.camera.on("click", function() {
-        takePhoto.apply(this, Array.prototype.slice.apply(arguments));
+        newPhoto.apply(this, Array.prototype.slice.apply(arguments));
     });
     $.__views.submit = A$(Ti.UI.createImageView({
         width: "35dp",
@@ -86,22 +68,12 @@ function Controller() {
     }), "ScrollView", $.__views.mainView);
     $.__views.mainView.add($.__views.listPhotos);
     _.extend($, $.__views);
-    var defaultImage = {
-        width: "60dp",
-        height: "60dp",
-        backgroundColor: "white",
-        left: "20dp"
-    }, defaultX = {
-        width: "20dp",
-        height: "20dp",
-        right: 0,
-        top: 0,
-        backgroundColor: "blue",
-        bubbleParent: !1
-    }, numberPhotos = 0, UI = {};
-    UI.image = Ti.UI.createImageView;
-    UI.view = Ti.UI.createView;
-    $._photo = {};
+    var takePhoto = require("ti.sandtonio.photoview/photo").showCamera, numberPhotos = 0, photos = {};
+    $.listPhotos.addEventListener("delete_view", function(e) {
+        $.listPhotos.remove(photos[e.id].getView());
+        delete photos[e.id];
+        Ti.API.info("DeleteView:" + e.id);
+    });
     _.extend($, exports);
 }
 

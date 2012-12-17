@@ -1,5 +1,5 @@
 <Alloy>
-	<ImageView id='imagePhoto'>
-		<ImageView id='iconDelete' />
+	<ImageView id="view">
+		<ImageView id='iconDelete' visible="false" />
 	</ImageView>
 </Alloy>

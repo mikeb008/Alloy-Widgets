@@ -1,8 +1,9 @@
-"#imagePhoto": {
+"#view": {
 	width:'60dp',
 	height:'60dp',
 	backgroundColor:'white',
 	left:'20dp',
+	edit:false //Customer
 },
 "#iconDelete": {
 	width:'20dp',
