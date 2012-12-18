@@ -2,12 +2,18 @@ function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {};
-    Alloy.Models.instance("user");
+    $.__views.login = A$(Ti.UI.createWindow({
+        backgroundColor: "red",
+        id: "login"
+    }), "Window", null);
+    $.addTopLevelView($.__views.login);
     _.extend($, $.__views);
     var user = Alloy.Models.user;
-    user.set("id", "instance");
-    user.fetch();
-    Alloy.createController(user.authenticatedStatus() ? "home" : "login").getView().open();
+    $.login.on("click", function() {
+        user.login();
+        Alloy.createController("home").getView().open();
+        $.login.close();
+    });
     _.extend($, exports);
 }
 

@@ -1,5 +1,3 @@
 <Alloy>
-	<Window class="container" id='index'>
-		<Require type="photoview" src="ti.sandtonio.photoview"/> 
-	</Window>
+	<Model src="user"/>
 </Alloy>

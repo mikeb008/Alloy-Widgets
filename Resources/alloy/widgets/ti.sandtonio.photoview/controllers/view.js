@@ -12,7 +12,6 @@ function Controller() {
         height: "60dp",
         backgroundColor: "white",
         left: "20dp",
-        top: "10dp",
         edit: !1,
         id: "view"
     }), "ImageView", null);

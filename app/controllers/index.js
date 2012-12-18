@@ -1,7 +1,5 @@
-$.index.open();
+var user = Alloy.Models.user;
+user.set('id', "instance");
+user.fetch();
 
-$.photoview.init({
-	upload: function(images){
-				
-	}
-})
+Alloy.createController(user.authenticatedStatus() ? 'home' : 'login').getView().open();
