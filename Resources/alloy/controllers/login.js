@@ -3,7 +3,7 @@ function Controller() {
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {};
     $.__views.login = A$(Ti.UI.createWindow({
-        backgroundColor: "ccc",
+        backgroundColor: "#ccc",
         id: "login"
     }), "Window", null);
     $.addTopLevelView($.__views.login);

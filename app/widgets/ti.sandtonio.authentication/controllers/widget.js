@@ -1,3 +1,0 @@
-$.container.on('click', function(){
-	
-});

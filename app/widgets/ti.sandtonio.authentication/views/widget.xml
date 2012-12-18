@@ -1,7 +1,0 @@
-<Alloy>
-	<View id='container'>
-		<TextField id='username'/>
-		<TextField id='password'/>
-		<Button id='submit'/>
-	</View>
-</Alloy>

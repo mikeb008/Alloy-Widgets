@@ -1,11 +1,12 @@
 {
-	"global": {}, 
-	"env:development": {}, 
-	"env:test": {}, 
-	"env:production": {}, 
-	"os:ios": {}, 
-	"os:android": {}, 
-	"dependencies": {
-		"ti.sandtonio.photoview":"0.1"
-	}
+    "global": {},
+    "env:development": {},
+    "env:test": {},
+    "env:production": {},
+    "os:ios": {},
+    "os:android": {},
+    "dependencies": {
+        "ti.sandtonio.photoview": "0.1",
+        "ti.sandtonio.authentication": "1.0"
+    }
 }
