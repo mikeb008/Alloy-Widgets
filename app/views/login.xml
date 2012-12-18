@@ -1,5 +1,5 @@
 <Alloy>
 	<Window>
-		
+		<Require type="widget" src="ti.sandtonio.authentication"/> 	
 	</Window>
 </Alloy>

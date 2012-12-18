@@ -1,0 +1,29 @@
+"#container" :{
+	height:'100%',
+	width:'100%',
+	top:0,
+	left:0,
+	backgroundColor:'ccc',
+	layout:'vertical'	
+},
+"#username":{
+	height:'40dp',
+	width:'80%',
+	top:'100dp',
+	hintText:'Usuario',
+	textAligh:'center'
+},
+"#password":{
+	height:'40dp',
+	width:'80%',
+	top:'15dp',
+	hintText:'Contraseña',
+	textAlig:'center'
+},
+"#submit": {
+	height:'40dp',
+	width:'80%',
+	top:'25dp',
+	title:'Ingresar',
+	textAlig:'center'
+}
