@@ -1,3 +1,5 @@
 "#login": {
-	backgroundColor: '#ccc'
+	navBarHidden:true,
+	backgroundColor: '#ccc',
+	exitOnClose: true
 }

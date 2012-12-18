@@ -1,9 +1,9 @@
 <Alloy>
-	<ScrollView>
-		<View id='container'>
+		<View >
+			<ScrollView id='container'>
 			<TextField id='username'/>
 			<TextField id='password'/>
 			<Button id='submit'/>
+			</ScrollView>
 		</View>
-	</ScrollView>
 </Alloy>

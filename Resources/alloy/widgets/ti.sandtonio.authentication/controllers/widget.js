@@ -7,19 +7,18 @@ function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {};
-    $.__views.widget = A$(Ti.UI.createScrollView({
+    $.__views.widget = A$(Ti.UI.createView({
         id: "widget"
-    }), "ScrollView", null);
+    }), "View", null);
     $.addTopLevelView($.__views.widget);
-    $.__views.container = A$(Ti.UI.createView({
+    $.__views.container = A$(Ti.UI.createScrollView({
         height: "100%",
         width: "100%",
-        top: 0,
         left: 0,
-        backgroundColor: "#ccc",
+        backgroundColor: "#ddd",
         layout: "vertical",
         id: "container"
-    }), "View", $.__views.widget);
+    }), "ScrollView", $.__views.widget);
     $.__views.widget.add($.__views.container);
     $.__views.username = A$(Ti.UI.createTextField({
         height: "40dp",

@@ -13,7 +13,7 @@
     <statusbar-style>default</statusbar-style>
     <statusbar-hidden>true</statusbar-hidden>
     <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
+    <navbar-hidden>true</navbar-hidden>
     <analytics>true</analytics>
     <guid>2ee7bc6a-d837-47bd-987c-53ae43b2ba23</guid>
     <property name="ti.ui.defaultunit" type="string">system</property>
