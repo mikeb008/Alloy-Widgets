@@ -3,7 +3,7 @@
 			<ScrollView id='container'>
 			<TextField id='username'/>
 			<TextField id='password'/>
-			<Button id='submit'/>
+			<Button id='submit' onClick='submit'/>
 			</ScrollView>
 		</View>
 </Alloy>

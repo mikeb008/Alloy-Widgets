@@ -4,6 +4,12 @@ function WPATH(s) {
 }
 
 function Controller() {
+    function submit() {
+        $.username.value && $.password.value ? handlers.success && handlers.success({
+            username: $.username.value,
+            password: $.password.value
+        }) : handlers.error && handlers.error();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {};
@@ -35,6 +41,7 @@ function Controller() {
         top: "15dp",
         hintText: "Contraseña",
         textAlig: "center",
+        passwordMask: !0,
         id: "password"
     }), "TextField", $.__views.container);
     $.__views.container.add($.__views.password);
@@ -47,7 +54,16 @@ function Controller() {
         id: "submit"
     }), "Button", $.__views.container);
     $.__views.container.add($.__views.submit);
+    $.__views.submit.on("click", function() {
+        submit.apply(this, Array.prototype.slice.apply(arguments));
+    });
     _.extend($, $.__views);
+    var HANDLERS = [ "success", "error" ], handlers = {};
+    exports.setHandlers = function(args) {
+        _.each(HANDLERS, function(h) {
+            args[h] && (handlers[h] = args[h]);
+        });
+    };
     _.extend($, exports);
 }
 

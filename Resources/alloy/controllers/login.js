@@ -9,12 +9,30 @@ function Controller() {
         id: "login"
     }), "Window", null);
     $.addTopLevelView($.__views.login);
-    $.__views.__alloyId3 = Alloy.createWidget("ti.sandtonio.authentication", "widget", {
-        id: "__alloyId3"
+    $.__views.authentication = Alloy.createWidget("ti.sandtonio.authentication", "widget", {
+        id: "authentication"
     });
-    $.__views.__alloyId3.setParent($.__views.login);
+    $.__views.authentication.setParent($.__views.login);
     _.extend($, $.__views);
-    var user = Alloy.Models.user;
+    var cloud = require("cloud"), user = Alloy.Models.user;
+    $.authentication.setHandlers({
+        success: function(args) {
+            cloud.login({
+                username: args.username,
+                password: args.password,
+                success: function(user) {
+                    $.login.close();
+                    Alloy.createController("home").getView().open();
+                },
+                error: function(error) {
+                    alert(error);
+                }
+            });
+        },
+        error: function() {
+            alert("Error en los datos");
+        }
+    });
     _.extend($, exports);
 }
 

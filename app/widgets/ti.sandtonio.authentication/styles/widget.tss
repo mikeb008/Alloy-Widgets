@@ -17,7 +17,8 @@
 	width:'80%',
 	top:'15dp',
 	hintText:'Contraseña',
-	textAlig:'center'
+	textAlig:'center',
+	passwordMask: true 
 },
 "#submit": {
 	height:'40dp',
